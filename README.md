@@ -1,2 +1,3 @@
-# 7PassToken
-Repository for 7Pass token development
+# 7Pass Smart Contracts
+
+
