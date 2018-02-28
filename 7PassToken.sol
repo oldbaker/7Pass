@@ -1,10 +1,10 @@
 pragma solidity ^0.4.18; 
 
 /*
-* @title ERC20 interface 
-* @dev Refer https://github.com/ethereum/EIPs/issues/20
-* @dev Refer https://github.com/ethereum/EIPs/issues/179
-*/
+ * @title ERC20 interface 
+ * @dev Refer https://github.com/ethereum/EIPs/issues/20
+ * @dev Refer https://github.com/ethereum/EIPs/issues/179
+ */
 
 contract ERC20 {
   function totalSupply()public view returns (uint256); // Refer https://github.com/OpenZeppelin/zeppelin-solidity/issues/434
@@ -21,13 +21,13 @@ contract ERC20 {
 }
 
 /*
-* @title SafeMath
-* @dev Math operations with safety checks that throw on error
-*/
+ * @title SafeMath
+ * @dev Math operations with safety checks that throw on error
+ */
 library SafeMath {
   /*
-  * @dev Multiplies two numbers, throws on overflow
-  */
+   * @dev Multiplies two numbers, throws on overflow
+   */
   function mul(uint256 a, uint256 b) internal pure returns (uint256) {
     if (a==0) {
       return 0;
@@ -38,8 +38,8 @@ library SafeMath {
   }
 
   /*
-  * @dev Integer division of two numbers, truncating the quotient
-  */
+   * @dev Integer division of two numbers, truncating the quotient
+   */
   function div(uint256 a,uint256 b) internal pure returns (uint256) {
     // assert(b>0) // Solidity automatically throws when dividing by 0
     uint256 c = a / b;
@@ -48,30 +48,20 @@ library SafeMath {
   }
 
   /*
-  * @dev Substracts two numbers, throws on overflow(i.e, if subtrahend is greater than minuend)
-  */
+   * @dev Substracts two numbers, throws on overflow(i.e, if subtrahend is greater than minuend)
+   */
   function safeSub(uint256 a, uint256 b) internal pure returns (uint256) {
     assert(b <= a);
     return a - b;
   }
 
   /*
-  * @dev Adds two numbers, throws on overflow
-  */
+   * @dev Adds two numbers, throws on overflow
+   */
   function safeAdd(uint256 a, uint256 b) internal pure returns (uint256) {
     uint256 c = a + b;
     assert(c >= a && c >= b);
     return c;
-  }
-  
-  /*
-  * @ title Utils
-  * @dev Helper functions and extensions
-  */
-  function assert(bool assertion) internal {
-    if (!assertion) {
-      revert();
-    }
   }
 }
 
@@ -88,17 +78,17 @@ contract BasicToken is ERC20 {
   uint256 totalSupply_;
 
   /*
-  * @dev total number of tokens in existence
-  */
+   * @dev total number of tokens in existence
+   */
   function totalSupply() public view returns (uint256) {
     return totalSupply_;
   }
 
   /*
-  * @dev transfer token for a specified address
-  * @param _to The address to transfer to.
-  * @param _value The amount to be transferred.
-  */
+   * @dev transfer token for a specified address
+   * @param _to The address to transfer to.
+   * @param _value The amount to be transferred.
+   */
   function transfer(address _to, uint256 _value) public returns (bool) {
     require(_to != address(0));
     require(_value <= balances[msg.sender]);
@@ -111,10 +101,10 @@ contract BasicToken is ERC20 {
   }
 
   /*
-  * @dev Gets the balance of the specified address.
-  * @param _owner The address to query the the balance of.
-  * @return An uint256 representing the amount owned by the passed address.
-  */
+   * @dev Gets the balance of the specified address.
+   * @param _owner The address to query the the balance of.
+   * @return An uint256 representing the amount owned by the passed address.
+   */
   function balanceOf(address _owner) public view returns (uint256 balance) {
     return balances[_owner];
   }
