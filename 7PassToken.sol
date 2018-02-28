@@ -1,6 +1,6 @@
 pragma solidity ^0.4.18; 
 
-/**
+/*
 * @title ERC20 interface 
 * @dev Refer https://github.com/ethereum/EIPs/issues/20
 * @dev Refer https://github.com/ethereum/EIPs/issues/179
@@ -20,12 +20,12 @@ contract ERC20 {
   event Approval(address indexed owner, address indexed spender, uint256 value); 
 }
 
-/**
+/*
 * @title SafeMath
 * @dev Math operations with safety checks that throw on error
 */
 library SafeMath {
-  /**
+  /*
   * @dev Multiplies two numbers, throws on overflow
   */
   function mul(uint256 a, uint256 b) internal pure returns (uint256) {
@@ -37,7 +37,7 @@ library SafeMath {
     return c;
   }
 
-  /**
+  /*
   * @dev Integer division of two numbers, truncating the quotient
   */
   function div(uint256 a,uint256 b) internal pure returns (uint256) {
@@ -47,7 +47,7 @@ library SafeMath {
     return c;
   }
 
-  /**
+  /*
   * @dev Substracts two numbers, throws on overflow(i.e, if subtrahend is greater than minuend)
   */
   function safeSub(uint256 a, uint256 b) internal pure returns (uint256) {
@@ -55,7 +55,7 @@ library SafeMath {
     return a - b;
   }
 
-  /**
+  /*
   * @dev Adds two numbers, throws on overflow
   */
   function safeAdd(uint256 a, uint256 b) internal pure returns (uint256) {
@@ -64,7 +64,7 @@ library SafeMath {
     return c;
   }
   
-  /**
+  /*
   * @ title Utils
   * @dev Helper functions and extensions
   */
@@ -76,7 +76,7 @@ library SafeMath {
 }
 
 
-/**
+/*
  * @title Basic token
  * @dev Basic version of StandardToken, with no allowances.
  */
@@ -87,14 +87,14 @@ contract BasicToken is ERC20 {
 
   uint256 totalSupply_;
 
-  /**
+  /*
   * @dev total number of tokens in existence
   */
   function totalSupply() public view returns (uint256) {
     return totalSupply_;
   }
 
-  /**
+  /*
   * @dev transfer token for a specified address
   * @param _to The address to transfer to.
   * @param _value The amount to be transferred.
@@ -110,7 +110,7 @@ contract BasicToken is ERC20 {
     return true;
   }
 
-  /**
+  /*
   * @dev Gets the balance of the specified address.
   * @param _owner The address to query the the balance of.
   * @return An uint256 representing the amount owned by the passed address.
@@ -122,7 +122,7 @@ contract BasicToken is ERC20 {
 }
 
 
-/**
+/*
  * @title Standard ERC20 token
  *
  * @dev Implementation of the basic standard token.
@@ -134,7 +134,7 @@ contract StandardToken is ERC20, BasicToken {
   mapping (address => mapping (address => uint256)) internal allowed;
 
 
-  /**
+  /*
    * @dev Transfer tokens from one address to another
    * @param _from address The address which you want to send tokens from
    * @param _to address The address which you want to transfer to
@@ -152,7 +152,7 @@ contract StandardToken is ERC20, BasicToken {
     return true;
   }
 
-  /**
+  /*
    * @dev Approve the passed address to spend the specified amount of tokens on behalf of msg.sender.
    *
    * Beware that changing an allowance with this method brings the risk that someone may use both the old
@@ -168,7 +168,7 @@ contract StandardToken is ERC20, BasicToken {
     return true;
   }
 
-  /**
+  /*
    * @dev Function to check the amount of tokens that an owner allowed to a spender.
    * @param _owner address The address which owns the funds.
    * @param _spender address The address which will spend the funds.
@@ -178,7 +178,7 @@ contract StandardToken is ERC20, BasicToken {
     return allowed[_owner][_spender];
   }
 
-  /**
+  /*
    * @dev Increase the amount of tokens that an owner allowed to a spender.
    *
    * approve should be called when allowed[_spender] == 0. To increment
@@ -194,7 +194,7 @@ contract StandardToken is ERC20, BasicToken {
     return true;
   }
 
-  /**
+  /*
    * @dev Decrease the amount of tokens that an owner allowed to a spender.
    *
    * approve should be called when allowed[_spender] == 0. To decrement
