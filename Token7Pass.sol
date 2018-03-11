@@ -250,9 +250,8 @@ contract Ownable {
 
 
 
-/**
+/*
  * @title Mintable token
- * @dev Simple ERC20 Token example, with mintable token creation
  * @dev Issue: * https://github.com/OpenZeppelin/zeppelin-solidity/issues/120
  * Based on code by TokenMarketNet: https://github.com/TokenMarketNet/ico/blob/master/contracts/MintableToken.sol
  */
@@ -268,7 +267,7 @@ contract MintableToken is StandardToken, Ownable {
     _;
   }
 
-  /**
+  /*
    * @dev Function to mint tokens
    * @param _to The address that will receive the minted tokens.
    * @param _amount The amount of tokens to mint.
@@ -282,7 +281,7 @@ contract MintableToken is StandardToken, Ownable {
     return true;
   }
 
-  /**
+  /*
    * @dev Function to stop minting new tokens.
    * @return True if the operation was successful.
    */
@@ -293,3 +292,11 @@ contract MintableToken is StandardToken, Ownable {
   }
 }
 
+/* @title The 7Pass Token
+ * @dev Contract that defines the 7Pass Token
+ */
+contract Token7Pass is MintableToken {
+  string public name = "7PASS";
+  string public symbol = "777";
+  uint8 public decimals = 18;
+}
